@@ -21,3 +21,10 @@
 .card-description{color:var(--muted);font-size:.76rem;line-height:1.45;padding:0 .85rem 2.8rem;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
 .card h3{padding-bottom:.35rem}.card-link{overflow:hidden}
 @media(max-width:600px){.nav-tools{gap:2px}.random-nav{width:38px;height:40px;font-size:1.55rem}.card-description{font-size:.72rem;padding:0 .7rem 2.7rem}.card h3{padding-bottom:.3rem}}
+
+/* Reliable shared header controls */
+.navbar .nav-tools{display:flex;align-items:center;justify-self:end;gap:6px}
+.navbar .random-nav{width:44px;height:44px;display:grid;place-items:center;border:1px solid transparent;border-radius:12px;background:transparent;color:#f5f0e1;font-size:1.75rem;line-height:1;cursor:pointer}
+.navbar .random-nav:hover{background:rgba(79,125,255,.16);color:#91b0ff}
+.report-btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem}
+@media(max-width:600px){.navbar .nav-tools{gap:2px}.navbar .random-nav{width:38px;height:40px;font-size:1.55rem}}

@@ -1,10 +1,182 @@
-const DATA_URL=document.querySelector(".video-page")?"../../data/videos.json":"./data/videos.json";
-let videos=[];
-function thumbnailSources(v){if(v.thumbnail&&!v.youtubeId)return[v.thumbnail];if(!v.youtubeId)return[];const id=encodeURIComponent(v.youtubeId);return[`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,`https://i.ytimg.com/vi/${id}/sddefault.jpg`,`https://i.ytimg.com/vi/${id}/hqdefault.jpg`,`https://i.ytimg.com/vi/${id}/mqdefault.jpg`];}
-function createThumbnail(v){const wrap=document.createElement("div");wrap.className="thumbnail thumbnail-fallback";const sources=thumbnailSources(v);if(!sources.length){wrap.classList.add("thumbnail-unavailable");return wrap;}const img=document.createElement("img");img.alt="";img.loading="lazy";img.decoding="async";let i=0;function next(){if(i>=sources.length){img.remove();wrap.classList.add("thumbnail-unavailable");return;}img.src=sources[i++];}img.onload=()=>{if(img.naturalWidth===120&&img.naturalHeight===90)next();else wrap.classList.remove("thumbnail-fallback");};img.onerror=next;next();wrap.appendChild(img);return wrap;}
-function cardFor(v){const card=document.createElement("article");card.className="card";const link=document.createElement("a");link.className="card-link";link.href=v.page;link.append(createThumbnail(v));const h=document.createElement("h3");h.textContent=v.title;link.append(h);const actions=document.createElement("div");actions.className="card-actions";actions.append(window.PsychflixBookmarks.createButton(v.id));card.append(link,actions);return card;}
-function categoryHref(c){return "./category.html?name="+encodeURIComponent(c);}
-function renderHome(list){const root=document.getElementById("videoLibrary"),empty=document.getElementById("noResults");root.replaceChildren();if(!list.length){empty.hidden=false;return;}empty.hidden=true;const groups=new Map();list.forEach(v=>{if(!groups.has(v.category))groups.set(v.category,[]);groups.get(v.category).push(v);});groups.forEach((items,c)=>{const section=document.createElement("section");section.className="row-section";const header=document.createElement("div");header.className="row-header";const heading=document.createElement("a");heading.className="category-heading-link";heading.href=categoryHref(c);const h=document.createElement("h2");h.textContent=c+"  →";heading.append(h);header.append(heading);const row=document.createElement("div");row.className="cards-row";items.forEach(v=>row.append(cardFor(v)));section.append(header,row);root.append(section);});}
-function initVideoPageNav(){const header=document.querySelector(".navbar");if(!header)return;const prefix="../../";header.innerHTML=`<a href="${prefix}index.html" class="logo"><img src="${prefix}assets/logo.png" alt="Psychflix"></a><form class="nav-search video-search"><input type="search" placeholder="Search psychology videos…" aria-label="Search videos"></form><a class="saved-nav" href="${prefix}saved.html" aria-label="Saved videos" title="Saved videos"><span aria-hidden="true">☆</span></a>`;header.querySelector("form").addEventListener("submit",e=>{e.preventDefault();const q=e.currentTarget.querySelector("input").value.trim();location.href=prefix+"index.html"+(q?"?q="+encodeURIComponent(q):"");});}
-async function init(){if(!document.getElementById("videoLibrary")){initVideoPageNav();return;}const search=document.getElementById("search");const params=new URLSearchParams(location.search);search.value=params.get("q")||"";search.addEventListener("input",()=>{const q=search.value.toLowerCase().trim();renderHome(videos.filter(v=>[v.title,v.category,v.id].some(x=>String(x||"").toLowerCase().includes(q))));});try{const r=await fetch(DATA_URL);if(!r.ok)throw Error("Video data request failed");const data=await r.json();if(!Array.isArray(data))throw Error("videos.json must be an array");const seen=new Set();videos=data.filter(v=>v.id&&v.title&&v.category&&v.page&&!seen.has(v.id)&&seen.add(v.id));renderHome(search.value?videos.filter(v=>[v.title,v.category,v.id].some(x=>String(x||"").toLowerCase().includes(search.value.toLowerCase()))):videos);}catch(e){console.error(e);document.getElementById("videoLibrary").textContent="The video library could not load. Please check data/videos.json.";}}
-init();
+(() => {
+  const scriptURL = document.currentScript ? document.currentScript.src : new URL("./script.js", location.href).href;
+  const siteRoot = new URL("./", scriptURL);
+  const dataURL = new URL("data/videos.json", siteRoot).href;
+  let videos = [];
+
+  const asset = path => new URL(path, siteRoot).href;
+  const pageURL = value => new URL(String(value || "").replace(/^\.\//, ""), siteRoot).href;
+
+  function getRandomVideo() {
+    if (!videos.length) return;
+    const current = location.pathname;
+    const choices = videos.filter(v => {
+      try { return new URL(v.page.replace(/^\.\//, ""), siteRoot).pathname !== current; }
+      catch { return true; }
+    });
+    const pool = choices.length ? choices : videos;
+    const video = pool[Math.floor(Math.random() * pool.length)];
+    location.href = pageURL(video.page);
+  }
+
+  function buildHeader() {
+    const header = document.querySelector(".navbar");
+    if (!header) return;
+    const searchValue = header.querySelector('input[type="search"]')?.value || "";
+    const search = document.createElement("form");
+    search.className = "nav-search";
+    search.innerHTML = '<input type="search" placeholder="Search psychology videos…" aria-label="Search videos">';
+    search.querySelector("input").value = searchValue;
+    const logo = document.createElement("a");
+    logo.className = "logo";
+    logo.href = siteRoot.href;
+    const image = document.createElement("img");
+    image.src = asset("assets/logo.png");
+    image.alt = "Psychflix";
+    logo.append(image);
+    const tools = document.createElement("div");
+    tools.className = "nav-tools";
+    const saved = document.createElement("a");
+    saved.className = "saved-nav";
+    saved.href = asset("saved.html");
+    saved.title = "Saved videos";
+    saved.setAttribute("aria-label", "Saved videos");
+    saved.textContent = "☆";
+    const random = document.createElement("button");
+    random.className = "random-nav";
+    random.type = "button";
+    random.title = "Open a random video";
+    random.setAttribute("aria-label", "Open a random video");
+    random.textContent = "⚄";
+    random.addEventListener("click", getRandomVideo);
+    tools.append(saved, random);
+    header.replaceChildren(logo, search, tools);
+    search.addEventListener("submit", event => {
+      event.preventDefault();
+      const query = search.querySelector("input").value.trim();
+      location.href = asset("index.html") + (query ? "?q=" + encodeURIComponent(query) : "");
+    });
+    return search;
+  }
+
+  function thumbnail(v) {
+    const wrap = document.createElement("div");
+    wrap.className = "thumbnail thumbnail-fallback";
+    const sources = v.thumbnail && !v.youtubeId
+      ? [v.thumbnail.startsWith("http") ? v.thumbnail : new URL(v.thumbnail.replace(/^\.\//, ""), siteRoot).href]
+      : v.youtubeId ? ["maxresdefault", "sddefault", "hqdefault", "mqdefault"].map(q => `https://i.ytimg.com/vi/${encodeURIComponent(v.youtubeId)}/${q}.jpg`) : [];
+    if (!sources.length) { wrap.classList.add("thumbnail-unavailable"); return wrap; }
+    const img = document.createElement("img");
+    img.alt = "";
+    img.loading = "lazy";
+    let index = 0;
+    const next = () => {
+      if (index >= sources.length) { img.remove(); wrap.classList.add("thumbnail-unavailable"); return; }
+      img.src = sources[index++];
+    };
+    img.onerror = next;
+    img.onload = () => {
+      if (img.naturalWidth === 120 && img.naturalHeight === 90) next();
+      else wrap.classList.remove("thumbnail-fallback");
+    };
+    next();
+    wrap.append(img);
+    return wrap;
+  }
+
+  function makeCard(v) {
+    const card = document.createElement("article");
+    card.className = "card";
+    const link = document.createElement("a");
+    link.className = "card-link";
+    link.href = pageURL(v.page);
+    link.append(thumbnail(v));
+    const title = document.createElement("h3");
+    title.textContent = v.title;
+    link.append(title);
+    if (v.metaDescription) {
+      const description = document.createElement("p");
+      description.className = "card-description";
+      description.textContent = v.metaDescription;
+      link.append(description);
+    }
+    const actions = document.createElement("div");
+    actions.className = "card-actions";
+    if (window.PsychflixBookmarks?.createButton) actions.append(window.PsychflixBookmarks.createButton(v.id));
+    card.append(link, actions);
+    return card;
+  }
+
+  function renderHome(list) {
+    const root = document.getElementById("videoLibrary");
+    const empty = document.getElementById("noResults");
+    if (!root) return;
+    root.replaceChildren();
+    if (!list.length) { if (empty) empty.hidden = false; return; }
+    if (empty) empty.hidden = true;
+    const groups = new Map();
+    list.forEach(v => { if (!groups.has(v.category)) groups.set(v.category, []); groups.get(v.category).push(v); });
+    groups.forEach((items, category) => {
+      const section = document.createElement("section");
+      section.className = "row-section";
+      const header = document.createElement("div");
+      header.className = "row-header";
+      const heading = document.createElement("a");
+      heading.className = "category-heading-link";
+      heading.href = asset("category.html") + "?name=" + encodeURIComponent(category);
+      const h2 = document.createElement("h2");
+      h2.textContent = category + " →";
+      heading.append(h2);
+      header.append(heading);
+      const row = document.createElement("div");
+      row.className = "cards-row";
+      items.forEach(v => row.append(makeCard(v)));
+      section.append(header, row);
+      root.append(section);
+    });
+  }
+
+  function wireReportButton() {
+    const button = document.querySelector(".report-btn");
+    if (!button || button.dataset.reportBound === "true") return;
+    button.dataset.reportBound = "true";
+    button.type = "button";
+    button.addEventListener("click", () => {
+      const title = document.querySelector(".video-title")?.textContent.trim() || document.title;
+      const issueURL = new URL("https://github.com/aravrix/Psychflix/issues/new");
+      issueURL.searchParams.set("title", "Video issue: " + title);
+      issueURL.searchParams.set("body", "Video: " + title + "\nPage: " + location.href + "\n\nWhat needs fixing?\n");
+      window.location.assign(issueURL.href);
+    });
+  }
+
+  async function init() {
+    const searchForm = buildHeader();
+    wireReportButton();
+    const response = await fetch(dataURL, { cache: "no-cache" });
+    if (!response.ok) throw new Error("Could not fetch video catalogue: " + response.status);
+    const data = await response.json();
+    if (!Array.isArray(data)) throw new Error("Video catalogue is not an array.");
+    videos = data.filter(v => v && v.id && v.title && v.page);
+    const library = document.getElementById("videoLibrary");
+    if (!library) return;
+    const input = searchForm?.querySelector("input");
+    const initialQuery = new URLSearchParams(location.search).get("q") || "";
+    if (input) {
+      input.value = initialQuery;
+      const filter = () => {
+        const q = input.value.toLowerCase().trim();
+        renderHome(videos.filter(v => [v.title, v.category, v.id, v.metaDescription].some(x => String(x || "").toLowerCase().includes(q))));
+      };
+      input.addEventListener("input", filter);
+      filter();
+    } else renderHome(videos);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => init().catch(console.error), { once: true });
+  else init().catch(error => {
+    console.error("Psychflix initialisation failed:", error);
+    const root = document.getElementById("videoLibrary");
+    if (root) root.textContent = "The video library could not load. Please refresh the page.";
+  });
+})();
