@@ -237,3 +237,33 @@
 .legal-navbar{grid-template-columns:minmax(0,1fr) auto!important}
 .legal-navbar .back-link{justify-self:end;text-align:right;white-space:nowrap}
 @media(max-width:600px){.legal-navbar{grid-template-columns:minmax(0,1fr) auto!important;gap:8px;padding:10px 12px}.legal-navbar .logo img{max-width:125px;height:38px}.legal-navbar .back-link{font-size:.86rem}}
+
+/* Keep the short preview modal centred in the viewport on desktop and mobile. */
+dialog.preview-dialog{
+  position:fixed!important;
+  inset:50% auto auto 50%!important;
+  transform:translate(-50%,-50%)!important;
+  margin:0!important;
+  width:min(900px,calc(100vw - 32px))!important;
+  max-width:none!important;
+  max-height:calc(100dvh - 32px);
+  padding:0!important;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:16px;
+  background:#061226;
+  color:#fff;
+  overflow:hidden;
+}
+dialog.preview-dialog[open]{display:block}
+.preview-dialog-inner{position:relative;padding:14px}
+.preview-frame{width:100%;aspect-ratio:16/9;background:#000;border-radius:10px;overflow:hidden}
+.preview-frame iframe{display:block;width:100%;height:100%;border:0}
+.preview-countdown{margin:9px 2px 0;text-align:center;color:#aebbd1;font-size:.78rem}
+.preview-close{position:absolute;z-index:3;right:20px;top:20px;width:36px;height:36px;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:rgba(0,0,0,.82);color:#fff;font-size:1.1rem;cursor:pointer}
+dialog.preview-dialog::backdrop{background:rgba(0,0,0,.82);backdrop-filter:blur(5px)}
+@media(max-width:600px){
+ dialog.preview-dialog{width:calc(100vw - 20px)!important;border-radius:12px}
+ .preview-dialog-inner{padding:8px}
+ .preview-close{right:13px;top:13px;width:32px;height:32px}
+ .preview-countdown{font-size:.72rem}
+}
