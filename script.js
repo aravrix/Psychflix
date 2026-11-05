@@ -17,27 +17,29 @@ function createThumbnail(video){
   const wrap=document.createElement("div");
   wrap.className="thumbnail thumbnail-fallback";
   const sources=thumbnailSources(video);
-  if(!sources.length){wrap.setAttribute("aria-label","Video preview unavailable");return wrap;}
+  if(!sources.length){wrap.classList.add("thumbnail-unavailable");return wrap;}
   const img=document.createElement("img");
   img.alt="";img.loading="lazy";img.decoding="async";
-  let index=0,finished=false;
+  let index=0;
   function next(){
     if(index>=sources.length){img.remove();wrap.classList.add("thumbnail-unavailable");return;}
     img.src=sources[index++];
   }
   img.addEventListener("load",()=>{
-    // YouTube returns a 120x90 white placeholder for unavailable maxres/sd thumbnails.
     if(img.naturalWidth===120 && img.naturalHeight===90){next();return;}
-    finished=true;wrap.classList.remove("thumbnail-fallback");
+    wrap.classList.remove("thumbnail-fallback");
   });
   img.addEventListener("error",next);
   next();wrap.appendChild(img);return wrap;
 }
 function cardFor(video){
-  const card=document.createElement("a");card.className="card";card.href=video.page;
-  card.appendChild(createThumbnail(video));
-  const title=document.createElement("h3");title.textContent=video.title;card.appendChild(title);
-  return card;
+  const card=document.createElement("article");card.className="card";
+  const link=document.createElement("a");link.className="card-link";link.href=video.page;
+  link.appendChild(createThumbnail(video));
+  const title=document.createElement("h3");title.textContent=video.title;link.appendChild(title);
+  const actions=document.createElement("div");actions.className="card-actions";
+  actions.appendChild(window.PsychflixBookmarks.createButton(video.id));
+  card.append(link,actions);return card;
 }
 function categoryHref(category){return "./category.html?name="+encodeURIComponent(category);}
 function renderHome(list){
@@ -65,7 +67,9 @@ function setMenu(open){
   const sidebar=document.getElementById("sidebar"),overlay=document.getElementById("overlay"),button=document.getElementById("menuBtn");
   sidebar.classList.toggle("active",open);overlay.classList.toggle("active",open);
   sidebar.setAttribute("aria-hidden",String(!open));button.setAttribute("aria-expanded",String(open));
+  button.setAttribute("aria-label",open?"Menu open":"Open menu");
   document.body.classList.toggle("menu-open",open);
+  if(open) document.getElementById("closeBtn").focus(); else button.focus();
 }
 function populateCategories(){
   const nav=document.getElementById("sidebarCategories");nav.replaceChildren();
@@ -86,9 +90,7 @@ function setup(){
   document.getElementById("closeBtn").addEventListener("click",()=>setMenu(false));
   document.getElementById("overlay").addEventListener("click",()=>setMenu(false));
   document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenu(false);});
-  document.querySelector(".random-btn").addEventListener("click",()=>{
-    if(videos.length)location.href=videos[Math.floor(Math.random()*videos.length)].page;
-  });
+  document.querySelector(".random-btn").addEventListener("click",()=>{if(videos.length)location.href=videos[Math.floor(Math.random()*videos.length)].page;});
 }
 async function init(){
   setup();
@@ -98,8 +100,6 @@ async function init(){
     const seen=new Set();
     videos=data.filter(v=>v.id&&v.title&&v.category&&v.page&&!seen.has(v.id)&&seen.add(v.id));
     populateCategories();renderHome(videos);
-  }catch(error){
-    console.error(error);document.getElementById("videoLibrary").textContent="The video library could not load. Please check data/videos.json.";
-  }
+  }catch(error){console.error(error);document.getElementById("videoLibrary").textContent="The video library could not load. Please check data/videos.json.";}
 }
 init();
