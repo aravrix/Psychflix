@@ -1,4 +1,4 @@
-/* Short, centred, click-to-play previews. Playback stops automatically after 6 seconds. */
+/* Short, centred, click-to-play previews. */
 (function(){
   let dialog;
   let stopTimer=null;
@@ -12,8 +12,8 @@
     if(dialog)return dialog;
     dialog=document.createElement("dialog");
     dialog.className="preview-dialog";
-    dialog.setAttribute("aria-label","Six-second video preview");
-    dialog.innerHTML='<div class="preview-dialog-inner"><button class="preview-close" type="button" aria-label="Close preview">✕</button><div class="preview-frame"></div><p class="preview-countdown">6-second preview</p></div>';
+    dialog.setAttribute("aria-label","Video preview");
+    dialog.innerHTML='<div class="preview-dialog-inner"><button class="preview-close" type="button" aria-label="Close preview">✕</button><div class="preview-frame"></div></div>';
     document.body.append(dialog);
     dialog.querySelector(".preview-close").addEventListener("click",stopPreview);
     dialog.addEventListener("click",e=>{if(e.target===dialog)stopPreview();});
@@ -26,7 +26,7 @@
     button.type="button";
     button.className="live-preview-btn";
     button.textContent="Preview";
-    button.setAttribute("aria-label","Play a six-second preview of "+video.title);
+    button.setAttribute("aria-label","Preview "+video.title);
     button.addEventListener("click",e=>{
       e.preventDefault();e.stopPropagation();
       if(!video.youtubeId)return;
@@ -34,14 +34,13 @@
       if(stopTimer){clearTimeout(stopTimer);stopTimer=null;}
       const frame=d.querySelector(".preview-frame");
       const iframe=document.createElement("iframe");
-      iframe.src="https://www.youtube-nocookie.com/embed/"+encodeURIComponent(video.youtubeId)+"?autoplay=1&mute=1&playsinline=1&controls=0&disablekb=1&rel=0&start=0&end=6";
-      iframe.title="Six-second preview of "+video.title;
+      iframe.src="https://www.youtube-nocookie.com/embed/"+encodeURIComponent(video.youtubeId)+"?autoplay=1&mute=1&playsinline=1&controls=0&disablekb=1&rel=0&start=0";
+      iframe.title="Preview of "+video.title;
       iframe.allow="autoplay; encrypted-media";
       iframe.setAttribute("referrerpolicy","strict-origin-when-cross-origin");
       frame.replaceChildren(iframe);
-      d.querySelector(".preview-countdown").textContent="Preview ends automatically after 6 seconds";
       if(!d.open)d.showModal();
-      stopTimer=setTimeout(stopPreview,6000);
+      stopTimer=setTimeout(stopPreview,10000);
     });
     return button;
   }
