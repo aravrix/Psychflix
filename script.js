@@ -94,16 +94,34 @@
     const title = document.createElement("h3");
     title.textContent = v.title;
     link.append(title);
+    card.append(link);
     if (v.metaDescription) {
+      const descriptionWrap = document.createElement("div");
+      descriptionWrap.className = "card-description-wrap";
       const description = document.createElement("p");
       description.className = "card-description";
       description.textContent = v.metaDescription;
-      link.append(description);
+      const more = document.createElement("button");
+      more.className = "description-toggle";
+      more.type = "button";
+      more.textContent = "More";
+      more.hidden = true;
+      more.setAttribute("aria-expanded", "false");
+      more.addEventListener("click", () => {
+        const expanded = card.classList.toggle("description-expanded");
+        more.textContent = expanded ? "Less" : "More";
+        more.setAttribute("aria-expanded", String(expanded));
+      });
+      descriptionWrap.append(description, more);
+      card.append(descriptionWrap);
+      requestAnimationFrame(() => {
+        more.hidden = description.scrollHeight <= description.clientHeight + 1;
+      });
     }
     const actions = document.createElement("div");
     actions.className = "card-actions";
     if (window.PsychflixBookmarks?.createButton) actions.append(window.PsychflixBookmarks.createButton(v.id));
-    card.append(link, actions);
+    card.append(actions);
     return card;
   }
 

@@ -28,3 +28,13 @@
 .navbar .random-nav:hover{background:rgba(79,125,255,.16);color:#91b0ff}
 .report-btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem}
 @media(max-width:600px){.navbar .nav-tools{gap:2px}.navbar .random-nav{width:38px;height:40px;font-size:1.55rem}}
+
+.card-description-wrap{padding:0 .85rem 2.8rem;min-height:0}
+.card-description{padding:0!important;margin:0;color:var(--muted);font-size:.76rem;line-height:1.45;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
+.description-toggle{display:inline-block;margin-top:3px;padding:0;border:0;background:none;color:#91b0ff;font:600 .72rem Inter,system-ui,sans-serif;cursor:pointer}
+.description-toggle:hover{text-decoration:underline}
+.description-toggle[hidden]{display:none}
+.card.description-expanded{height:auto;min-height:232px;overflow:visible;z-index:3}
+.card.description-expanded .card-description-wrap{padding-bottom:2.8rem}
+.card.description-expanded .card-description{display:block;overflow:visible}
+@media(max-width:600px){.card-description-wrap{padding:0 .7rem 2.7rem}.card-description{font-size:.72rem}.card.description-expanded{min-height:205px}}
