@@ -1,0 +1,184 @@
+[
+  {
+    "id": "intro-to-psychology",
+    "title": "Introduction to Psychology",
+    "category": "Basics",
+    "page": "./video/basics/intro-to-psychology.html",
+    "youtubeId": "vo4pMVb0R6M"
+  },
+  {
+    "id": "intro-to-fields",
+    "title": "Fields of Psychology",
+    "category": "Basics",
+    "page": "./video/basics/intro-to-fields.html",
+    "youtubeId": "z0Y6K_FNyIc"
+  },
+  {
+    "id": "sigmund-freud-pleasure-principle",
+    "title": "PSYCHOTHERAPY - Sigmund Freud",
+    "category": "Basics",
+    "page": "./video/basics/sigmund-freud-pleasure-principle.html",
+    "youtubeId": "mQaqXK7z9LM"
+  },
+  {
+    "id": "research-methods-explained",
+    "title": "Research Methods In Psychology",
+    "category": "Basics",
+    "page": "./video/basics/research-methods-explained.html",
+    "youtubeId": "5pkGI0emULk"
+  },
+  {
+    "id": "mental-disorders-explained",
+    "title": "Every Mental Disorder & Their Effects Explained",
+    "category": "Basics",
+    "page": "./video/basics/mental-disorders-explained.html",
+    "youtubeId": "I_pDKWIpQ1U"
+  },
+  {
+    "id": "types-of-memory",
+    "title": "Types of Memory",
+    "category": "Memory",
+    "page": "./video/memory/types-of-memory.html",
+    "youtubeId": "EqdsQDM5Fys"
+  },
+  {
+    "id": "theories-of-forgetting",
+    "title": "Theories of Forgetting",
+    "category": "Memory",
+    "page": "./video/memory/theories-of-forgetting.html",
+    "youtubeId": "47JRs6hF_ic"
+  },
+  {
+    "id": "encoding-strategies-memory",
+    "title": "Encoding Strategies",
+    "category": "Memory",
+    "page": "./video/memory/encoding-strategies-memory.html",
+    "youtubeId": "mlrOJgyPySw"
+  },
+  {
+    "id": "memory-strategies-method-of-loci",
+    "title": "Memory Strategies: Method of Loci",
+    "category": "Memory",
+    "page": "./video/memory/memory-strategies-method-of-loci.html",
+    "youtubeId": "p9IOqd1LpkA"
+  },
+  {
+    "id": "memory-strategies-chunking",
+    "title": "Memory Strategies: Chunking",
+    "category": "Memory",
+    "page": "./video/memory/memory-strategies-chunking.html",
+    "youtubeId": "hydCdGLAh00"
+  },
+  {
+    "id": "classical-operant-conditioning-explained",
+    "title": "Difference Between Classical and Operant Conditioning",
+    "category": "Learning",
+    "page": "./video/learning/classical-operant-conditioning-explained.html",
+    "youtubeId": "H6LEcM0E0io"
+  },
+  {
+    "id": "observational-learning-explained",
+    "title": "Observational Learning",
+    "category": "Learning",
+    "page": "./video/learning/observational-learning-explained.html",
+    "youtubeId": "XHIhkM1cAv4"
+  },
+  {
+    "id": "full-learning-course",
+    "title": "General Psychology: Learning",
+    "category": "Learning",
+    "page": "./video/learning/full-learning-course.html",
+    "youtubeId": "4UytOH6vu40"
+  },
+  {
+    "id": "example12",
+    "title": "Reinforcement",
+    "category": "Learning",
+    "page": "./video/example12.html",
+    "thumbnail": "./assets/thumb12.jpg"
+  },
+  {
+    "id": "operant-conditioning-experiment",
+    "title": "Dr. B.F. Skinner and Operant Conditioning",
+    "category": "Experiments",
+    "page": "./video/experiments/operant-conditioning-experiment.html",
+    "youtubeId": "NeK8GNLylkc"
+  },
+  {
+    "id": "classical-conditioning-experiment",
+    "title": "Ivan Pavlov and Classical Conditioning - Experiment",
+    "category": "Experiments",
+    "page": "./video/experiments/classical-conditioning-experiment.html",
+    "youtubeId": "asmXyJaXBC8"
+  },
+  {
+    "id": "observational-learning-experiment",
+    "title": "Bandura and Observational Learning - Experiment",
+    "category": "Experiments",
+    "page": "./video/experiments/observational-learning-experiment.html",
+    "youtubeId": "dmBqwWlJg8U"
+  },
+  {
+    "id": "jean-piagets-conversation-tasks",
+    "title": "A typical child on Piaget's conservation tasks",
+    "category": "Experiments",
+    "page": "./video/experiments/jean-piagets-conversation-tasks.html",
+    "youtubeId": "gnArvcWaH6I"
+  },
+  {
+    "id": "what-handwriting-says-about-you",
+    "title": "What Your Handwriting Says About You?",
+    "category": "Fun",
+    "page": "./video/fun/what-handwriting-says-about-you.html",
+    "youtubeId": "A7dwv7D_T5w"
+  },
+  {
+    "id": "fun-and-awesome-psychology-facts",
+    "title": "12 Fun and Awesome Psychology Facts You Wish You Knew",
+    "category": "Fun",
+    "page": "./video/fun/fun-and-awesome-psychology-facts.html",
+    "youtubeId": "8KgH6Ed3IS8"
+  },
+  {
+    "id": "worlds-quickest-personality-test",
+    "title": "World's Quickest Personality Test",
+    "category": "Fun",
+    "page": "./video/fun/worlds-quickest-personality-test.html",
+    "youtubeId": "kHF0VXPanU8"
+  },
+  {
+    "id": "personality-introvert-extrovert-ambivert",
+    "title": "Are You an Introvert, Extrovert or Ambivert?",
+    "category": "Fun",
+    "page": "./video/fun/personality-introvert-extrovert-ambivert.html",
+    "youtubeId": "uIlHVGTQWxA"
+  },
+  {
+    "id": "cbt-session-depression",
+    "title": "Case Study: CBT Session with Depression",
+    "category": "Real Sessions",
+    "page": "./video/sessions/cbt-session-depression.html",
+    "youtubeId": "7LD8iC4NqXM"
+  },
+  {
+    "id": "dsm-5-real-patient-session-schizophrenia",
+    "title": "DSM-5 Real Patient Session - Schizophrenia",
+    "category": "Real Sessions",
+    "page": "./video/sessions/dsm-5-real-patient-session-schizophrenia.html",
+    "youtubeId": "iGH7hGkkMrU"
+  },
+  {
+    "id": "actual-session-beersos",
+    "title": "An Actual Therapy Session",
+    "category": "Real Sessions",
+    "page": "./video/sessions/actual-session-beersos.html",
+    "youtubeId": "vetYz18K4mQ"
+  },
+  {
+    "id": "narcissism-actual-session",
+    "title": "LIVE Narcissism Therapy Session | Evaluation",
+    "category": "Real Sessions",
+    "page": "./video/sessions/narcissism-actual-session.html",
+    "youtubeId": "5l6mwfsmnBU"
+  }
+]
