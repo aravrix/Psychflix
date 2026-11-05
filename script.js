@@ -59,25 +59,25 @@
     return search;
   }
 
-  function thumbnail(v) {
+  function thumbnail(v, card) {
     const wrap = document.createElement("div");
     wrap.className = "thumbnail thumbnail-fallback";
     const sources = v.thumbnail && !v.youtubeId
       ? [v.thumbnail.startsWith("http") ? v.thumbnail : new URL(v.thumbnail.replace(/^\.\//, ""), siteRoot).href]
       : v.youtubeId ? ["maxresdefault", "sddefault", "hqdefault", "mqdefault"].map(q => `https://i.ytimg.com/vi/${encodeURIComponent(v.youtubeId)}/${q}.jpg`) : [];
-    if (!sources.length) { wrap.classList.add("thumbnail-unavailable"); return wrap; }
+    if (!sources.length) { card.remove(); return wrap; }
     const img = document.createElement("img");
     img.alt = "";
     img.loading = "lazy";
     let index = 0;
     const next = () => {
-      if (index >= sources.length) { img.remove(); wrap.classList.add("thumbnail-unavailable"); return; }
+      if (index >= sources.length) { img.remove(); card.remove(); const row = card.parentElement; if (row && !row.querySelector(".card")) row.closest(".row-section")?.remove(); return; }
       img.src = sources[index++];
     };
     img.onerror = next;
     img.onload = () => {
       if (img.naturalWidth === 120 && img.naturalHeight === 90) next();
-      else wrap.classList.remove("thumbnail-fallback");
+      else { wrap.classList.remove("thumbnail-fallback"); if (v.youtubeId && window.PsychflixPreview) wrap.append(window.PsychflixPreview.createButton(v)); }
     };
     next();
     wrap.append(img);
@@ -90,7 +90,7 @@
     const link = document.createElement("a");
     link.className = "card-link";
     link.href = pageURL(v.page);
-    link.append(thumbnail(v));
+    link.append(thumbnail(v, card));
     const title = document.createElement("h3");
     title.textContent = v.title;
     link.append(title);
@@ -161,12 +161,12 @@
     if (!response.ok) throw new Error("Could not fetch video catalogue: " + response.status);
     const data = await response.json();
     if (!Array.isArray(data)) throw new Error("Video catalogue is not an array.");
-    videos = data.filter(v => v && v.id && v.title && v.page);
+    videos = data.filter(v => v && v.id && v.title && v.page && (v.youtubeId || v.thumbnail));
     const library = document.getElementById("videoLibrary");
     if (!library) return;
     const input = searchForm?.querySelector("input");
     const initialQuery = new URLSearchParams(location.search).get("q") || "";
-    if (input) {
+    window.PsychflixPreview?.init();\n    if (input) {
       input.value = initialQuery;
       const filter = () => {
         const q = input.value.toLowerCase().trim();

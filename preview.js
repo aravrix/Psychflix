@@ -1,0 +1,8 @@
+/* Click-to-play previews: embeds load only after the visitor requests a preview. */
+(function(){
+  let dialog;
+  function ensureDialog(){if(dialog)return dialog;dialog=document.createElement("dialog");dialog.className="preview-dialog";dialog.setAttribute("aria-label","Video preview");dialog.innerHTML='<div class="preview-dialog-inner"><button class="preview-close" type="button" aria-label="Close preview">✕</button><div class="preview-frame"></div></div>';document.body.append(dialog);const close=()=>{dialog.querySelector("iframe")?.remove();dialog.close();};dialog.querySelector(".preview-close").addEventListener("click",close);dialog.addEventListener("click",e=>{if(e.target===dialog)close();});dialog.addEventListener("close",()=>dialog.querySelector("iframe")?.remove());document.addEventListener("keydown",e=>{if(e.key==="Escape"&&dialog.open)close();});return dialog;}
+  function createButton(video){const button=document.createElement("button");button.type="button";button.className="live-preview-btn";button.textContent="Preview";button.setAttribute("aria-label","Preview "+video.title);button.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();const d=ensureDialog(),frame=d.querySelector(".preview-frame"),iframe=document.createElement("iframe");iframe.src="https://www.youtube-nocookie.com/embed/"+encodeURIComponent(video.youtubeId)+"?autoplay=1&mute=1&playsinline=1&rel=0";iframe.title=video.title+" preview";iframe.allow="autoplay; encrypted-media; picture-in-picture";iframe.allowFullscreen=true;frame.replaceChildren(iframe);d.showModal();});return button;}
+  function init(){document.querySelectorAll(".preview-dialog").forEach(x=>x.remove());}
+  window.PsychflixPreview={createButton,init};
+})();
