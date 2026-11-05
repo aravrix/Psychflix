@@ -161,10 +161,10 @@
     button.type = "button";
     button.addEventListener("click", () => {
       const title = document.querySelector(".video-title")?.textContent.trim() || document.title;
-      const issueURL = new URL("https://github.com/aravrix/Psychflix/issues/new");
-      issueURL.searchParams.set("title", "Video issue: " + title);
-      issueURL.searchParams.set("body", "Video: " + title + "\nPage: " + location.href + "\n\nWhat needs fixing?\n");
-      window.location.assign(issueURL.href);
+      const reportURL = new URL("https://docs.google.com/forms/d/e/1FAIpQLScL-7fFr9poBvRtffsSbd9OaG9LlhA7WmDuRv4zMbO1-l_EEA/viewform");
+      reportURL.searchParams.set("usp", "pp_url");
+      reportURL.searchParams.set("entry.1712958836", location.href);
+      window.location.assign(reportURL.href);
     });
   }
 
