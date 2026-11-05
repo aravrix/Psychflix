@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Psychflix – Category</title><meta name="theme-color" content="#0B1E3A">
+<link rel="stylesheet" href="./style.css">
+<link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+</head>
+<body>
+<header class="navbar">
+  <button class="nav-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">☰</button>
+  <a href="./index.html" class="logo"><img src="./assets/logo.png" alt="Psychflix"></a>
+  <a href="./index.html" class="nav-btn home-link" aria-label="Home">⌂</a>
+</header>
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <button class="close-btn" id="closeBtn" type="button" aria-label="Close menu">✕</button>
+  <a href="./index.html">Home</a><div class="sidebar-categories" id="sidebarCategories"></div>
+</aside>
+<div class="overlay" id="overlay"></div>
+<section class="category-page-header">
+  <a href="./index.html" class="back-link">← Back to all videos</a>
+  <h1 id="categoryTitle">Loading category…</h1>
+  <p id="categoryCount"></p>
+</section>
+<main id="categoryVideos" class="category-grid" aria-live="polite"><p class="loading-message">Loading videos…</p></main>
+<script src="./category.js" defer></script>
+</body>
+</html>
