@@ -267,3 +267,9 @@ dialog.preview-dialog::backdrop{background:rgba(0,0,0,.82);backdrop-filter:blur(
  .preview-close{right:13px;top:13px;width:32px;height:32px}
  .preview-countdown{font-size:.72rem}
 }
+
+/* Preview is a dedicated card action beside the bookmark, never a hover-only overlay. */
+.live-preview-btn{position:static;z-index:auto;left:auto;top:auto;right:auto;bottom:auto;transform:none;opacity:1;display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:7px 12px;border:1px solid rgba(255,255,255,.2);border-radius:9px;background:rgba(45,91,157,.28);color:#e8f0ff;font:600 .76rem Inter,system-ui,sans-serif;cursor:pointer}
+.live-preview-btn:hover,.live-preview-btn:focus-visible{background:rgba(65,119,190,.48);outline:2px solid rgba(145,176,255,.5);outline-offset:2px}
+.card-actions{display:flex;align-items:center;gap:8px}
+.preview-countdown{margin:10px 2px 0;text-align:center;color:#d5def0;font-size:.9rem;font-weight:600;font-variant-numeric:tabular-nums}

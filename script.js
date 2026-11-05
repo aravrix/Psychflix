@@ -77,7 +77,7 @@
     img.onerror = next;
     img.onload = () => {
       if (img.naturalWidth === 120 && img.naturalHeight === 90) next();
-      else { wrap.classList.remove("thumbnail-fallback"); if (v.youtubeId && window.PsychflixPreview) wrap.append(window.PsychflixPreview.createButton(v)); }
+      else { wrap.classList.remove("thumbnail-fallback"); }
     };
     next();
     wrap.append(img);
@@ -107,6 +107,7 @@
     const actions = document.createElement("div");
     actions.className = "card-actions";
     if (window.PsychflixBookmarks?.createButton) actions.append(window.PsychflixBookmarks.createButton(v.id));
+    if (v.youtubeId && window.PsychflixPreview) actions.append(window.PsychflixPreview.createButton(v));
     card.append(actions);
     return card;
   }
