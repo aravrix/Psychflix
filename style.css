@@ -38,3 +38,8 @@
 .card.description-expanded .card-description-wrap{padding-bottom:2.8rem}
 .card.description-expanded .card-description{display:block;overflow:visible}
 @media(max-width:600px){.card-description-wrap{padding:0 .7rem 2.7rem}.card-description{font-size:.72rem}.card.description-expanded{min-height:205px}}
+
+
+/* Compact centred card descriptions; CSS line-clamp adds the ellipsis. */
+.card-description-wrap{text-align:center;padding:0 .85rem 2.8rem}
+.card-description{text-align:center;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;text-overflow:ellipsis}

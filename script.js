@@ -101,22 +101,8 @@
       const description = document.createElement("p");
       description.className = "card-description";
       description.textContent = v.metaDescription;
-      const more = document.createElement("button");
-      more.className = "description-toggle";
-      more.type = "button";
-      more.textContent = "More";
-      more.hidden = true;
-      more.setAttribute("aria-expanded", "false");
-      more.addEventListener("click", () => {
-        const expanded = card.classList.toggle("description-expanded");
-        more.textContent = expanded ? "Less" : "More";
-        more.setAttribute("aria-expanded", String(expanded));
-      });
-      descriptionWrap.append(description, more);
+      descriptionWrap.append(description);
       card.append(descriptionWrap);
-      requestAnimationFrame(() => {
-        more.hidden = description.scrollHeight <= description.clientHeight + 1;
-      });
     }
     const actions = document.createElement("div");
     actions.className = "card-actions";
