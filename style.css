@@ -298,7 +298,7 @@ body{
    MOBILE
 ======================= */
 
-@media (width:768px){
+@media (max-width:768px){
 
     .scroll-btn{
         display:none;
@@ -489,4 +489,4 @@ body{
         font-size:1rem;
     }
 
-}
+}\n.loading-message{color:var(--muted);text-align:center;padding:3rem 1rem}\n
