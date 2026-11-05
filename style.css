@@ -232,3 +232,8 @@
 .preview-close{position:absolute;z-index:2;right:18px;top:18px;width:38px;height:38px;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:rgba(0,0,0,.8);color:#fff;font-size:1.1rem;cursor:pointer}
 @media(max-width:600px){.category-page-header{padding:1.4rem 14px .7rem}.category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px 10px 24px}.category-grid .card,.card{width:100%;min-width:0;min-height:244px;height:244px}.card .thumbnail,.category-grid .card .thumbnail{height:108px;flex:0 0 108px}.card h3{font-size:.84rem;padding:8px 9px 4px}.card-description-wrap{padding:4px 9px 42px}.card-description{font-size:.72rem}.preview-dialog{width:calc(100vw - 16px);border-radius:12px}.preview-dialog-inner{padding:7px}.preview-close{right:12px;top:12px;width:34px;height:34px}}
 @media(max-width:360px){.category-grid{gap:7px;padding-left:8px;padding-right:8px}.category-grid .card,.card{min-height:232px;height:232px}.card .thumbnail,.category-grid .card .thumbnail{height:98px;flex-basis:98px}.card h3{font-size:.8rem}}
+
+/* Legal-page header: keep the return link flush right on every screen */
+.legal-navbar{grid-template-columns:minmax(0,1fr) auto!important}
+.legal-navbar .back-link{justify-self:end;text-align:right;white-space:nowrap}
+@media(max-width:600px){.legal-navbar{grid-template-columns:minmax(0,1fr) auto!important;gap:8px;padding:10px 12px}.legal-navbar .logo img{max-width:125px;height:38px}.legal-navbar .back-link{font-size:.86rem}}

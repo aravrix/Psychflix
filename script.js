@@ -177,7 +177,7 @@
     } else renderHome(videos);
   }
 
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => init().catch(console.error), { once: true });
+  function showLoadError(error) {\n    console.error("Psychflix initialisation failed:", error);\n    const root = document.getElementById("videoLibrary");\n    if (root) root.textContent = "The video library could not load. Please refresh the page.";\n  }\n\n  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => init().catch(showLoadError), { once: true });
   else init().catch(error => {
     console.error("Psychflix initialisation failed:", error);
     const root = document.getElementById("videoLibrary");
