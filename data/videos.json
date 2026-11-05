@@ -5,8 +5,8 @@
     "category": "Basics",
     "page": "./video/basics/intro-to-psychology.html",
     "youtubeId": "vo4pMVb0R6M",
-    "metaTitle": "Introduction to Psychology | Psychflix",
-    "metaDescription": "An introduction to psychology: what it studies, how it developed, and the major perspectives used to understand human thought and behaviour."
+    "metaTitle": "Psychflix: Introduction to Psychology",
+    "metaDescription": "Crash Course Psychology host Hank Green introduces psychology, what the field studies, where it came from, and why understanding behaviour and mental processes is more complex than it first appears."
   },
   {
     "id": "intro-to-fields",
@@ -14,8 +14,8 @@
     "category": "Basics",
     "page": "./video/basics/intro-to-fields.html",
     "youtubeId": "z0Y6K_FNyIc",
-    "metaTitle": "Fields of Psychology | Psychflix",
-    "metaDescription": "Explore the major fields of psychology, from clinical and developmental psychology to cognitive, social and research-focused areas."
+    "metaTitle": "Psychflix: Fields of Psychology",
+    "metaDescription": "A guided overview of the major fields of psychology, explaining how areas such as clinical, developmental, cognitive and social psychology approach different questions about people and behaviour."
   },
   {
     "id": "sigmund-freud-pleasure-principle",
@@ -23,8 +23,8 @@
     "category": "Basics",
     "page": "./video/basics/sigmund-freud-pleasure-principle.html",
     "youtubeId": "mQaqXK7z9LM",
-    "metaTitle": "PSYCHOTHERAPY - Sigmund Freud | Psychflix",
-    "metaDescription": "An overview of Sigmund Freud and psychoanalysis, including the pleasure principle and its place in the history of psychological thought."
+    "metaTitle": "Psychflix: PSYCHOTHERAPY - Sigmund Freud",
+    "metaDescription": "An introduction to Sigmund Freud’s psychoanalytic ideas and his view of the ways unconscious wishes, inner conflict and the pleasure principle shape human experience."
   },
   {
     "id": "research-methods-explained",
@@ -32,8 +32,8 @@
     "category": "Basics",
     "page": "./video/basics/research-methods-explained.html",
     "youtubeId": "5pkGI0emULk",
-    "metaTitle": "Research Methods In Psychology | Psychflix",
-    "metaDescription": "Learn the foundations of psychological research, including experiments, correlations, surveys, observations and case studies."
+    "metaTitle": "Psychflix: Research Methods In Psychology",
+    "metaDescription": "A psychology research-methods lesson covering experiments, correlational studies, surveys, naturalistic observation, case studies and other ways researchers investigate behaviour."
   },
   {
     "id": "mental-disorders-explained",
@@ -41,8 +41,8 @@
     "category": "Basics",
     "page": "./video/basics/mental-disorders-explained.html",
     "youtubeId": "I_pDKWIpQ1U",
-    "metaTitle": "Every Mental Disorder & Their Effects Explained | Psychflix",
-    "metaDescription": "An educational overview of mental disorders and how psychological conditions can affect everyday life."
+    "metaTitle": "Psychflix: Every Mental Disorder & Their Effects Explained",
+    "metaDescription": "An accessible overview of mental disorders and the ways psychological conditions can affect everyday thoughts, emotions and behaviour. The video is educational, not a diagnostic guide."
   },
   {
     "id": "types-of-memory",
@@ -50,8 +50,8 @@
     "category": "Memory",
     "page": "./video/memory/types-of-memory.html",
     "youtubeId": "EqdsQDM5Fys",
-    "metaTitle": "Types of Memory | Psychflix",
-    "metaDescription": "Explore how memory works and the major types of memory involved in storing and retrieving information."
+    "metaTitle": "Psychflix: Types of Memory",
+    "metaDescription": "An introduction to memory as the ability to encode, store and retrieve information, with a look at how memory is connected to the brain and everyday cognition."
   },
   {
     "id": "theories-of-forgetting",
@@ -59,8 +59,8 @@
     "category": "Memory",
     "page": "./video/memory/theories-of-forgetting.html",
     "youtubeId": "47JRs6hF_ic",
-    "metaTitle": "Theories of Forgetting | Psychflix",
-    "metaDescription": "Learn about explanations of forgetting, including decay and interference, and how information can become harder to retrieve."
+    "metaTitle": "Psychflix: Theories of Forgetting",
+    "metaDescription": "A concise lesson on two explanations of forgetting: decay, in which memory traces may weaken over time, and interference, in which other information makes recall more difficult."
   },
   {
     "id": "encoding-strategies-memory",
@@ -68,8 +68,8 @@
     "category": "Memory",
     "page": "./video/memory/encoding-strategies-memory.html",
     "youtubeId": "mlrOJgyPySw",
-    "metaTitle": "Encoding Strategies | Psychflix",
-    "metaDescription": "Discover memory encoding strategies such as rehearsal, chunking and mnemonic techniques to support learning."
+    "metaTitle": "Psychflix: Encoding Strategies",
+    "metaDescription": "A lesson on how information is encoded into memory, including rehearsal, chunking, mnemonic devices, self-reference and spaced practice as ways to support learning and later recall."
   },
   {
     "id": "memory-strategies-method-of-loci",
@@ -77,8 +77,8 @@
     "category": "Memory",
     "page": "./video/memory/memory-strategies-method-of-loci.html",
     "youtubeId": "p9IOqd1LpkA",
-    "metaTitle": "Memory Strategies: Method of Loci | Psychflix",
-    "metaDescription": "Learn the method of loci, a memory technique that links information to familiar places and mental images."
+    "metaTitle": "Psychflix: Memory Strategies: Method of Loci",
+    "metaDescription": "An explanation of the method of loci, or memory palace: a technique that links information to familiar places and mental images to make ordered information easier to recall."
   },
   {
     "id": "memory-strategies-chunking",
@@ -86,8 +86,8 @@
     "category": "Memory",
     "page": "./video/memory/memory-strategies-chunking.html",
     "youtubeId": "hydCdGLAh00",
-    "metaTitle": "Memory Strategies: Chunking | Psychflix",
-    "metaDescription": "Understand chunking: grouping information into meaningful units to make it easier to remember."
+    "metaTitle": "Psychflix: Memory Strategies: Chunking",
+    "metaDescription": "An explanation of chunking, the process of grouping separate pieces of information into meaningful units so working memory can handle and remember them more effectively."
   },
   {
     "id": "classical-operant-conditioning-explained",
@@ -95,8 +95,8 @@
     "category": "Learning",
     "page": "./video/learning/classical-operant-conditioning-explained.html",
     "youtubeId": "H6LEcM0E0io",
-    "metaTitle": "Difference Between Classical and Operant Conditioning | Psychflix",
-    "metaDescription": "Compare classical and operant conditioning and learn how associations, reinforcement and consequences influence behaviour."
+    "metaTitle": "Psychflix: Difference Between Classical and Operant Conditioning",
+    "metaDescription": "Peggy Andover explains the difference between classical and operant conditioning: learning through associations between stimuli and learning shaped by consequences such as reinforcement and punishment."
   },
   {
     "id": "observational-learning-explained",
@@ -104,8 +104,8 @@
     "category": "Learning",
     "page": "./video/learning/observational-learning-explained.html",
     "youtubeId": "XHIhkM1cAv4",
-    "metaTitle": "Observational Learning | Psychflix",
-    "metaDescription": "Explore observational learning and Bandura's social learning theory, including learning by watching others."
+    "metaTitle": "Psychflix: Observational Learning",
+    "metaDescription": "An introduction to Albert Bandura’s social learning theory and the Bobo doll studies, exploring how people—especially children—can learn by observing other people and their behaviour."
   },
   {
     "id": "full-learning-course",
@@ -113,8 +113,8 @@
     "category": "Learning",
     "page": "./video/learning/full-learning-course.html",
     "youtubeId": "4UytOH6vu40",
-    "metaTitle": "General Psychology: Learning | Psychflix",
-    "metaDescription": "A broad introduction to learning in psychology, covering conditioning, observational learning and key learning theories."
+    "metaTitle": "Psychflix: General Psychology: Learning",
+    "metaDescription": "A broad psychology lesson on learning, introducing how experience changes behaviour and covering major approaches such as classical conditioning, operant conditioning and observational learning."
   },
   {
     "id": "example12",
@@ -122,7 +122,7 @@
     "category": "Learning",
     "page": "./video/example12.html",
     "thumbnail": "./assets/thumb12.jpg",
-    "metaTitle": "Reinforcement | Psychflix",
+    "metaTitle": "Psychflix: Reinforcement",
     "metaDescription": "An introduction to reinforcement and how consequences can influence the likelihood of behaviour."
   },
   {
@@ -131,8 +131,8 @@
     "category": "Experiments",
     "page": "./video/experiments/operant-conditioning-experiment.html",
     "youtubeId": "NeK8GNLylkc",
-    "metaTitle": "Dr. B.F. Skinner and Operant Conditioning | Psychflix",
-    "metaDescription": "See how B. F. Skinner's work demonstrated operant conditioning and the role of reinforcement in learning."
+    "metaTitle": "Psychflix: Dr. B.F. Skinner and Operant Conditioning",
+    "metaDescription": "A short introduction to B. F. Skinner’s work on operant conditioning and how consequences, including reinforcement, can influence the likelihood of a behaviour."
   },
   {
     "id": "classical-conditioning-experiment",
@@ -140,8 +140,8 @@
     "category": "Experiments",
     "page": "./video/experiments/classical-conditioning-experiment.html",
     "youtubeId": "asmXyJaXBC8",
-    "metaTitle": "Ivan Pavlov and Classical Conditioning - Experiment | Psychflix",
-    "metaDescription": "Explore Pavlov's classical conditioning experiment and how associations can form between stimuli."
+    "metaTitle": "Psychflix: Ivan Pavlov and Classical Conditioning - Experiment",
+    "metaDescription": "A brief explanation and re-enactment of Ivan Pavlov’s research, showing how repeated associations between stimuli helped establish the principles of classical conditioning."
   },
   {
     "id": "observational-learning-experiment",
@@ -149,8 +149,8 @@
     "category": "Experiments",
     "page": "./video/experiments/observational-learning-experiment.html",
     "youtubeId": "dmBqwWlJg8U",
-    "metaTitle": "Bandura and Observational Learning - Experiment | Psychflix",
-    "metaDescription": "Learn about Bandura's observational learning research and how behaviour can be learned by watching a model."
+    "metaTitle": "Psychflix: Bandura and Observational Learning - Experiment",
+    "metaDescription": "A look at Bandura’s observational-learning research and how children can learn behaviours by watching models, a finding central to social learning theory."
   },
   {
     "id": "jean-piagets-conversation-tasks",
@@ -158,8 +158,8 @@
     "category": "Experiments",
     "page": "./video/experiments/jean-piagets-conversation-tasks.html",
     "youtubeId": "gnArvcWaH6I",
-    "metaTitle": "A typical child on Piaget's conservation tasks | Psychflix",
-    "metaDescription": "Watch Piagetian conservation tasks and explore how children understand number, length, liquid, mass and area."
+    "metaTitle": "Psychflix: A typical child on Piaget's conservation tasks",
+    "metaDescription": "A child completes Piagetian conservation tasks involving number, length, liquid, mass and area, illustrating how children’s understanding can be tested across different situations."
   },
   {
     "id": "what-handwriting-says-about-you",
@@ -167,8 +167,8 @@
     "category": "Fun",
     "page": "./video/fun/what-handwriting-says-about-you.html",
     "youtubeId": "A7dwv7D_T5w",
-    "metaTitle": "What Your Handwriting Says About You? | Psychflix",
-    "metaDescription": "An exploration of graphology and popular claims about handwriting. Graphology is controversial and is not a reliable personality assessment."
+    "metaTitle": "Psychflix: What Your Handwriting Says About You?",
+    "metaDescription": "A look at popular claims linking handwriting with personality through graphology. These claims are controversial and handwriting analysis is not an established, reliable personality test."
   },
   {
     "id": "fun-and-awesome-psychology-facts",
@@ -176,8 +176,8 @@
     "category": "Fun",
     "page": "./video/fun/fun-and-awesome-psychology-facts.html",
     "youtubeId": "8KgH6Ed3IS8",
-    "metaTitle": "12 Fun and Awesome Psychology Facts You Wish You Knew | Psychflix",
-    "metaDescription": "A collection of accessible psychology facts and ideas about everyday thoughts, feelings and behaviour."
+    "metaTitle": "Psychflix: 12 Fun and Awesome Psychology Facts You Wish You Knew",
+    "metaDescription": "A collection of bite-sized psychology ideas about everyday thoughts, feelings and behaviour, presented in an accessible, animated format."
   },
   {
     "id": "worlds-quickest-personality-test",
@@ -185,8 +185,8 @@
     "category": "Fun",
     "page": "./video/fun/worlds-quickest-personality-test.html",
     "youtubeId": "kHF0VXPanU8",
-    "metaTitle": "World's Quickest Personality Test | Psychflix",
-    "metaDescription": "A short personality quiz introducing the Big Five traits: openness, conscientiousness, extraversion, agreeableness and neuroticism."
+    "metaTitle": "Psychflix: World's Quickest Personality Test",
+    "metaDescription": "A quick personality quiz introducing the Big Five model: openness, conscientiousness, extraversion, agreeableness and neuroticism. Treat it as a brief reflection, not a formal assessment."
   },
   {
     "id": "personality-introvert-extrovert-ambivert",
@@ -194,8 +194,8 @@
     "category": "Fun",
     "page": "./video/fun/personality-introvert-extrovert-ambivert.html",
     "youtubeId": "uIlHVGTQWxA",
-    "metaTitle": "Are You an Introvert, Extrovert or Ambivert? | Psychflix",
-    "metaDescription": "Explore introversion, extroversion and ambiversion as personality tendencies that exist along a spectrum."
+    "metaTitle": "Psychflix: Are You an Introvert, Extrovert or Ambivert?",
+    "metaDescription": "A personality quiz exploring introversion, extroversion and ambiversion, and how social preferences can vary along a spectrum rather than fitting rigid categories."
   },
   {
     "id": "cbt-session-depression",
@@ -203,8 +203,8 @@
     "category": "Real Sessions",
     "page": "./video/sessions/cbt-session-depression.html",
     "youtubeId": "7LD8iC4NqXM",
-    "metaTitle": "Case Study: CBT Session with Depression | Psychflix",
-    "metaDescription": "An educational example of a cognitive behavioural therapy session showing how thoughts, feelings and behaviour can interact."
+    "metaTitle": "Psychflix: Case Study: CBT Session with Depression",
+    "metaDescription": "A teaching example of an initial cognitive behavioural therapy session with a client experiencing low mood. It illustrates links between triggers, thoughts, feelings and responses; the client is portrayed by an actor."
   },
   {
     "id": "dsm-5-real-patient-session-schizophrenia",
@@ -212,8 +212,8 @@
     "category": "Real Sessions",
     "page": "./video/sessions/dsm-5-real-patient-session-schizophrenia.html",
     "youtubeId": "iGH7hGkkMrU",
-    "metaTitle": "DSM-5 Real Patient Session - Schizophrenia | Psychflix",
-    "metaDescription": "A clinical educational discussion demonstrating how professionals assess schizophrenia symptoms using diagnostic criteria."
+    "metaTitle": "Psychflix: DSM-5 Real Patient Session - Schizophrenia",
+    "metaDescription": "Mental health experts discuss a real clinical case and apply DSM-5 criteria when considering schizophrenia. This is an educational demonstration, not a tool for self-diagnosis."
   },
   {
     "id": "actual-session-beersos",
@@ -221,8 +221,8 @@
     "category": "Real Sessions",
     "page": "./video/sessions/actual-session-beersos.html",
     "youtubeId": "vetYz18K4mQ",
-    "metaTitle": "An Actual Therapy Session | Psychflix",
-    "metaDescription": "An educational look at a therapy conversation and how a therapist helps a client explore experiences and perspectives."
+    "metaTitle": "Psychflix: An Actual Therapy Session",
+    "metaDescription": "A therapy-session conversation in which a client explores how earlier experiences have affected their thoughts and emotions, while a therapist helps them consider different perspectives and coping strategies."
   },
   {
     "id": "narcissism-actual-session",
@@ -230,7 +230,7 @@
     "category": "Real Sessions",
     "page": "./video/sessions/narcissism-actual-session.html",
     "youtubeId": "5l6mwfsmnBU",
-    "metaTitle": "LIVE Narcissism Therapy Session | Evaluation | Psychflix",
-    "metaDescription": "An educational discussion of narcissistic traits, assessment and the process of a therapy session."
+    "metaTitle": "Psychflix: LIVE Narcissism Therapy Session | Evaluation",
+    "metaDescription": "Dr. Ramani Durvasula discusses narcissistic traits and the process of clinical evaluation in a live therapy-style session, offering an educational look at assessment and therapeutic conversation."
   }
 ]
