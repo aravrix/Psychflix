@@ -1,185 +1,105 @@
 console.log("Psychflix JS Loaded");
+const DATA_URL="./data/videos.json";
+let videos=[];
 
-const DATA_URL = "./data/videos.json";
-let videos = [];
-
-function getThumbnailCandidates(video) {
-    if (video.youtubeId) {
-        const id = encodeURIComponent(video.youtubeId);
-        return [
-            `https://i3.ytimg.com/vi/${id}/maxresdefault.jpg`,
-            `https://i3.ytimg.com/vi/${id}/sddefault.jpg`,
-            `https://i3.ytimg.com/vi/${id}/hqdefault.jpg`,
-            `https://i3.ytimg.com/vi/${id}/mqdefault.jpg`,
-            `https://i3.ytimg.com/vi/${id}/default.jpg`
-        ];
-    }
-    return video.thumbnail ? [video.thumbnail] : [];
+function thumbnailSources(video){
+  if(video.thumbnail && !video.youtubeId) return [video.thumbnail];
+  if(!video.youtubeId) return [];
+  const id=encodeURIComponent(video.youtubeId);
+  return [
+    `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,
+    `https://i.ytimg.com/vi/${id}/sddefault.jpg`,
+    `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
+    `https://i.ytimg.com/vi/${id}/mqdefault.jpg`
+  ];
 }
-
-function createThumbnail(video) {
-    const wrapper = document.createElement("div");
-    wrapper.className = "thumbnail";
-    const candidates = getThumbnailCandidates(video);
-    if (!candidates.length) return wrapper;
-
-    const img = document.createElement("img");
-    img.alt = "";
-    img.loading = "lazy";
-    let candidateIndex = 0;
-    img.src = candidates[candidateIndex++];
-    img.addEventListener("error", () => {
-        if (candidateIndex < candidates.length) {
-            img.src = candidates[candidateIndex++];
-        } else {
-            img.remove();
-        }
-    });
-    wrapper.appendChild(img);
-    return wrapper;
+function createThumbnail(video){
+  const wrap=document.createElement("div");
+  wrap.className="thumbnail thumbnail-fallback";
+  const sources=thumbnailSources(video);
+  if(!sources.length){wrap.setAttribute("aria-label","Video preview unavailable");return wrap;}
+  const img=document.createElement("img");
+  img.alt="";img.loading="lazy";img.decoding="async";
+  let index=0,finished=false;
+  function next(){
+    if(index>=sources.length){img.remove();wrap.classList.add("thumbnail-unavailable");return;}
+    img.src=sources[index++];
+  }
+  img.addEventListener("load",()=>{
+    // YouTube returns a 120x90 white placeholder for unavailable maxres/sd thumbnails.
+    if(img.naturalWidth===120 && img.naturalHeight===90){next();return;}
+    finished=true;wrap.classList.remove("thumbnail-fallback");
+  });
+  img.addEventListener("error",next);
+  next();wrap.appendChild(img);return wrap;
 }
-
-function renderLibrary(list) {
-    const library = document.getElementById("videoLibrary");
-    const noResults = document.getElementById("noResults");
-    const searchValue = document.getElementById("search")?.value.trim() || "";
-    if (!library) return;
-
-    library.innerHTML = "";
-    if (!list.length) {
-        noResults.hidden = searchValue.length === 0;
-        return;
-    }
-    noResults.hidden = true;
-
-    const groups = new Map();
-    list.forEach(video => {
-        const category = video.category || "Other";
-        if (!groups.has(category)) groups.set(category, []);
-        groups.get(category).push(video);
-    });
-
-    groups.forEach((items, category) => {
-        const section = document.createElement("section");
-        section.className = "row-section";
-        const heading = document.createElement("div");
-        heading.className = "row-header";
-        const h2 = document.createElement("h2");
-        h2.textContent = category;
-        heading.appendChild(h2);
-
-        const container = document.createElement("div");
-        container.className = "row-container";
-        const left = document.createElement("button");
-        left.className = "scroll-btn left";
-        left.type = "button";
-        left.textContent = "❮";
-        left.setAttribute("aria-label", `Scroll ${category} left`);
-
-        const row = document.createElement("div");
-        row.className = "cards-row";
-
-        items.forEach(video => {
-            const card = document.createElement("a");
-            card.className = "card";
-            card.href = video.page;
-            card.dataset.videoId = video.id;
-            card.appendChild(createThumbnail(video));
-            const title = document.createElement("h3");
-            title.textContent = video.title;
-            card.appendChild(title);
-            row.appendChild(card);
-        });
-
-        const right = document.createElement("button");
-        right.className = "scroll-btn right";
-        right.type = "button";
-        right.textContent = "❯";
-        right.setAttribute("aria-label", `Scroll ${category} right`);
-
-        container.append(left, row, right);
-        section.append(heading, container);
-        library.appendChild(section);
-    });
+function cardFor(video){
+  const card=document.createElement("a");card.className="card";card.href=video.page;
+  card.appendChild(createThumbnail(video));
+  const title=document.createElement("h3");title.textContent=video.title;card.appendChild(title);
+  return card;
 }
-
-function closeSidebar() {
-    document.getElementById("sidebar")?.classList.remove("active");
-    document.getElementById("overlay")?.classList.remove("active");
+function categoryHref(category){return "./category.html?name="+encodeURIComponent(category);}
+function renderHome(list){
+  const root=document.getElementById("videoLibrary"),noResults=document.getElementById("noResults");
+  const term=document.getElementById("search")?.value.trim()||"";
+  root.replaceChildren();
+  if(!list.length){noResults.hidden=!term;return;}
+  noResults.hidden=true;
+  const groups=new Map();
+  list.forEach(v=>{if(!groups.has(v.category))groups.set(v.category,[]);groups.get(v.category).push(v);});
+  groups.forEach((items,category)=>{
+    const section=document.createElement("section");section.className="row-section";
+    const header=document.createElement("div");header.className="row-header";
+    const heading=document.createElement("a");heading.className="category-heading-link";heading.href=categoryHref(category);
+    const h2=document.createElement("h2");h2.textContent=category+"  →";heading.appendChild(h2);header.appendChild(heading);
+    const container=document.createElement("div");container.className="row-container";
+    const left=document.createElement("button");left.className="scroll-btn left";left.type="button";left.textContent="‹";left.setAttribute("aria-label","Scroll "+category+" left");
+    const row=document.createElement("div");row.className="cards-row";
+    items.forEach(v=>row.appendChild(cardFor(v)));
+    const right=document.createElement("button");right.className="scroll-btn right";right.type="button";right.textContent="›";right.setAttribute("aria-label","Scroll "+category+" right");
+    container.append(left,row,right);section.append(header,container);root.appendChild(section);
+  });
 }
-
-function setupControls() {
-    const search = document.getElementById("search");
-    search?.addEventListener("input", () => {
-        const term = search.value.toLowerCase().trim();
-        const filtered = videos.filter(video =>
-            [video.title, video.category, video.id].some(value =>
-                String(value || "").toLowerCase().includes(term)
-            )
-        );
-        renderLibrary(filtered);
-    });
-
-    document.getElementById("videoLibrary")?.addEventListener("click", event => {
-        const button = event.target.closest(".scroll-btn");
-        if (!button) return;
-        const row = button.parentElement.querySelector(".cards-row");
-        row?.scrollBy({
-            left: button.classList.contains("right") ? 300 : -300,
-            behavior: "smooth"
-        });
-    });
-
-    document.getElementById("menuBtn")?.addEventListener("click", () => {
-        document.getElementById("sidebar")?.classList.add("active");
-        document.getElementById("overlay")?.classList.add("active");
-    });
-    document.getElementById("closeBtn")?.addEventListener("click", closeSidebar);
-    document.getElementById("overlay")?.addEventListener("click", closeSidebar);
-
-    document.querySelector(".random-btn")?.addEventListener("click", () => {
-        if (!videos.length) return;
-        const selected = videos[Math.floor(Math.random() * videos.length)];
-        window.location.href = selected.page;
-    });
-
-    const reportBtn = document.querySelector(".report-btn");
-    if (reportBtn) {
-        reportBtn.addEventListener("click", () => {
-            const pagePath = window.location.pathname
-                .replace(".html", "")
-                .replace(/^\//, "");
-            const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScL-7fFr9poBvRtffsSbd9OaG9LlhA7WmDuRv4zMbO1-l_EEA/viewform?usp=pp_url&entry.1712958836=" +
-                encodeURIComponent(pagePath);
-            window.open(formUrl, "_blank", "noopener,noreferrer");
-        });
-    }
+function setMenu(open){
+  const sidebar=document.getElementById("sidebar"),overlay=document.getElementById("overlay"),button=document.getElementById("menuBtn");
+  sidebar.classList.toggle("active",open);overlay.classList.toggle("active",open);
+  sidebar.setAttribute("aria-hidden",String(!open));button.setAttribute("aria-expanded",String(open));
+  document.body.classList.toggle("menu-open",open);
 }
-
-async function init() {
-    setupControls();
-    try {
-        const response = await fetch(DATA_URL);
-        if (!response.ok) throw new Error(`Could not load videos.json: ${response.status}`);
-        const data = await response.json();
-        if (!Array.isArray(data)) throw new Error("videos.json must contain an array.");
-
-        const ids = new Set();
-        videos = data.filter(video => {
-            if (!video.id || !video.title || !video.category || !video.page) return false;
-            if (ids.has(video.id)) {
-                console.warn("Duplicate video ID skipped:", video.id);
-                return false;
-            }
-            ids.add(video.id);
-            return true;
-        });
-        renderLibrary(videos);
-    } catch (error) {
-        console.error(error);
-        document.getElementById("videoLibrary").innerHTML =
-            '<p class="loading-message">The video library could not load. Check that data/videos.json exists and that the site is running through a web server.</p>';
-    }
+function populateCategories(){
+  const nav=document.getElementById("sidebarCategories");nav.replaceChildren();
+  [...new Set(videos.map(v=>v.category))].forEach(category=>{
+    const a=document.createElement("a");a.href=categoryHref(category);a.textContent=category;nav.appendChild(a);
+  });
 }
-
+function setup(){
+  document.getElementById("search").addEventListener("input",e=>{
+    const q=e.target.value.toLowerCase().trim();
+    renderHome(videos.filter(v=>[v.title,v.category,v.id].some(x=>String(x||"").toLowerCase().includes(q))));
+  });
+  document.getElementById("videoLibrary").addEventListener("click",e=>{
+    const button=e.target.closest(".scroll-btn");if(!button)return;
+    button.parentElement.querySelector(".cards-row").scrollBy({left:button.classList.contains("right")?300:-300,behavior:"smooth"});
+  });
+  document.getElementById("menuBtn").addEventListener("click",()=>setMenu(true));
+  document.getElementById("closeBtn").addEventListener("click",()=>setMenu(false));
+  document.getElementById("overlay").addEventListener("click",()=>setMenu(false));
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenu(false);});
+  document.querySelector(".random-btn").addEventListener("click",()=>{
+    if(videos.length)location.href=videos[Math.floor(Math.random()*videos.length)].page;
+  });
+}
+async function init(){
+  setup();
+  try{
+    const response=await fetch(DATA_URL);if(!response.ok)throw new Error("Video data request failed");
+    const data=await response.json();if(!Array.isArray(data))throw new Error("videos.json must be an array");
+    const seen=new Set();
+    videos=data.filter(v=>v.id&&v.title&&v.category&&v.page&&!seen.has(v.id)&&seen.add(v.id));
+    populateCategories();renderHome(videos);
+  }catch(error){
+    console.error(error);document.getElementById("videoLibrary").textContent="The video library could not load. Please check data/videos.json.";
+  }
+}
 init();
