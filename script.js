@@ -166,7 +166,8 @@
     if (!library) return;
     const input = searchForm?.querySelector("input");
     const initialQuery = new URLSearchParams(location.search).get("q") || "";
-    window.PsychflixPreview?.init();\n    if (input) {
+    window.PsychflixPreview?.init();
+    if (input) {
       input.value = initialQuery;
       const filter = () => {
         const q = input.value.toLowerCase().trim();
@@ -177,7 +178,13 @@
     } else renderHome(videos);
   }
 
-  function showLoadError(error) {\n    console.error("Psychflix initialisation failed:", error);\n    const root = document.getElementById("videoLibrary");\n    if (root) root.textContent = "The video library could not load. Please refresh the page.";\n  }\n\n  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => init().catch(showLoadError), { once: true });
+  function showLoadError(error) {
+    console.error("Psychflix initialisation failed:", error);
+    const root = document.getElementById("videoLibrary");
+    if (root) root.textContent = "The video library could not load. Please refresh the page.";
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => init().catch(showLoadError), { once: true });
   else init().catch(error => {
     console.error("Psychflix initialisation failed:", error);
     const root = document.getElementById("videoLibrary");
