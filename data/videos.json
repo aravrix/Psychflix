@@ -4,181 +4,233 @@
     "title": "Introduction to Psychology",
     "category": "Basics",
     "page": "./video/basics/intro-to-psychology.html",
-    "youtubeId": "vo4pMVb0R6M"
+    "youtubeId": "vo4pMVb0R6M",
+    "metaTitle": "Introduction to Psychology | Psychflix",
+    "metaDescription": "An introduction to psychology: what it studies, how it developed, and the major perspectives used to understand human thought and behaviour."
   },
   {
     "id": "intro-to-fields",
     "title": "Fields of Psychology",
     "category": "Basics",
     "page": "./video/basics/intro-to-fields.html",
-    "youtubeId": "z0Y6K_FNyIc"
+    "youtubeId": "z0Y6K_FNyIc",
+    "metaTitle": "Fields of Psychology | Psychflix",
+    "metaDescription": "Explore the major fields of psychology, from clinical and developmental psychology to cognitive, social and research-focused areas."
   },
   {
     "id": "sigmund-freud-pleasure-principle",
     "title": "PSYCHOTHERAPY - Sigmund Freud",
     "category": "Basics",
     "page": "./video/basics/sigmund-freud-pleasure-principle.html",
-    "youtubeId": "mQaqXK7z9LM"
+    "youtubeId": "mQaqXK7z9LM",
+    "metaTitle": "PSYCHOTHERAPY - Sigmund Freud | Psychflix",
+    "metaDescription": "An overview of Sigmund Freud and psychoanalysis, including the pleasure principle and its place in the history of psychological thought."
   },
   {
     "id": "research-methods-explained",
     "title": "Research Methods In Psychology",
     "category": "Basics",
     "page": "./video/basics/research-methods-explained.html",
-    "youtubeId": "5pkGI0emULk"
+    "youtubeId": "5pkGI0emULk",
+    "metaTitle": "Research Methods In Psychology | Psychflix",
+    "metaDescription": "Learn the foundations of psychological research, including experiments, correlations, surveys, observations and case studies."
   },
   {
     "id": "mental-disorders-explained",
     "title": "Every Mental Disorder & Their Effects Explained",
     "category": "Basics",
     "page": "./video/basics/mental-disorders-explained.html",
-    "youtubeId": "I_pDKWIpQ1U"
+    "youtubeId": "I_pDKWIpQ1U",
+    "metaTitle": "Every Mental Disorder & Their Effects Explained | Psychflix",
+    "metaDescription": "An educational overview of mental disorders and how psychological conditions can affect everyday life."
   },
   {
     "id": "types-of-memory",
     "title": "Types of Memory",
     "category": "Memory",
     "page": "./video/memory/types-of-memory.html",
-    "youtubeId": "EqdsQDM5Fys"
+    "youtubeId": "EqdsQDM5Fys",
+    "metaTitle": "Types of Memory | Psychflix",
+    "metaDescription": "Explore how memory works and the major types of memory involved in storing and retrieving information."
   },
   {
     "id": "theories-of-forgetting",
     "title": "Theories of Forgetting",
     "category": "Memory",
     "page": "./video/memory/theories-of-forgetting.html",
-    "youtubeId": "47JRs6hF_ic"
+    "youtubeId": "47JRs6hF_ic",
+    "metaTitle": "Theories of Forgetting | Psychflix",
+    "metaDescription": "Learn about explanations of forgetting, including decay and interference, and how information can become harder to retrieve."
   },
   {
     "id": "encoding-strategies-memory",
     "title": "Encoding Strategies",
     "category": "Memory",
     "page": "./video/memory/encoding-strategies-memory.html",
-    "youtubeId": "mlrOJgyPySw"
+    "youtubeId": "mlrOJgyPySw",
+    "metaTitle": "Encoding Strategies | Psychflix",
+    "metaDescription": "Discover memory encoding strategies such as rehearsal, chunking and mnemonic techniques to support learning."
   },
   {
     "id": "memory-strategies-method-of-loci",
     "title": "Memory Strategies: Method of Loci",
     "category": "Memory",
     "page": "./video/memory/memory-strategies-method-of-loci.html",
-    "youtubeId": "p9IOqd1LpkA"
+    "youtubeId": "p9IOqd1LpkA",
+    "metaTitle": "Memory Strategies: Method of Loci | Psychflix",
+    "metaDescription": "Learn the method of loci, a memory technique that links information to familiar places and mental images."
   },
   {
     "id": "memory-strategies-chunking",
     "title": "Memory Strategies: Chunking",
     "category": "Memory",
     "page": "./video/memory/memory-strategies-chunking.html",
-    "youtubeId": "hydCdGLAh00"
+    "youtubeId": "hydCdGLAh00",
+    "metaTitle": "Memory Strategies: Chunking | Psychflix",
+    "metaDescription": "Understand chunking: grouping information into meaningful units to make it easier to remember."
   },
   {
     "id": "classical-operant-conditioning-explained",
     "title": "Difference Between Classical and Operant Conditioning",
     "category": "Learning",
     "page": "./video/learning/classical-operant-conditioning-explained.html",
-    "youtubeId": "H6LEcM0E0io"
+    "youtubeId": "H6LEcM0E0io",
+    "metaTitle": "Difference Between Classical and Operant Conditioning | Psychflix",
+    "metaDescription": "Compare classical and operant conditioning and learn how associations, reinforcement and consequences influence behaviour."
   },
   {
     "id": "observational-learning-explained",
     "title": "Observational Learning",
     "category": "Learning",
     "page": "./video/learning/observational-learning-explained.html",
-    "youtubeId": "XHIhkM1cAv4"
+    "youtubeId": "XHIhkM1cAv4",
+    "metaTitle": "Observational Learning | Psychflix",
+    "metaDescription": "Explore observational learning and Bandura's social learning theory, including learning by watching others."
   },
   {
     "id": "full-learning-course",
     "title": "General Psychology: Learning",
     "category": "Learning",
     "page": "./video/learning/full-learning-course.html",
-    "youtubeId": "4UytOH6vu40"
+    "youtubeId": "4UytOH6vu40",
+    "metaTitle": "General Psychology: Learning | Psychflix",
+    "metaDescription": "A broad introduction to learning in psychology, covering conditioning, observational learning and key learning theories."
   },
   {
     "id": "example12",
     "title": "Reinforcement",
     "category": "Learning",
     "page": "./video/example12.html",
-    "thumbnail": "./assets/thumb12.jpg"
+    "thumbnail": "./assets/thumb12.jpg",
+    "metaTitle": "Reinforcement | Psychflix",
+    "metaDescription": "An introduction to reinforcement and how consequences can influence the likelihood of behaviour."
   },
   {
     "id": "operant-conditioning-experiment",
     "title": "Dr. B.F. Skinner and Operant Conditioning",
     "category": "Experiments",
     "page": "./video/experiments/operant-conditioning-experiment.html",
-    "youtubeId": "NeK8GNLylkc"
+    "youtubeId": "NeK8GNLylkc",
+    "metaTitle": "Dr. B.F. Skinner and Operant Conditioning | Psychflix",
+    "metaDescription": "See how B. F. Skinner's work demonstrated operant conditioning and the role of reinforcement in learning."
   },
   {
     "id": "classical-conditioning-experiment",
     "title": "Ivan Pavlov and Classical Conditioning - Experiment",
     "category": "Experiments",
     "page": "./video/experiments/classical-conditioning-experiment.html",
-    "youtubeId": "asmXyJaXBC8"
+    "youtubeId": "asmXyJaXBC8",
+    "metaTitle": "Ivan Pavlov and Classical Conditioning - Experiment | Psychflix",
+    "metaDescription": "Explore Pavlov's classical conditioning experiment and how associations can form between stimuli."
   },
   {
     "id": "observational-learning-experiment",
     "title": "Bandura and Observational Learning - Experiment",
     "category": "Experiments",
     "page": "./video/experiments/observational-learning-experiment.html",
-    "youtubeId": "dmBqwWlJg8U"
+    "youtubeId": "dmBqwWlJg8U",
+    "metaTitle": "Bandura and Observational Learning - Experiment | Psychflix",
+    "metaDescription": "Learn about Bandura's observational learning research and how behaviour can be learned by watching a model."
   },
   {
     "id": "jean-piagets-conversation-tasks",
     "title": "A typical child on Piaget's conservation tasks",
     "category": "Experiments",
     "page": "./video/experiments/jean-piagets-conversation-tasks.html",
-    "youtubeId": "gnArvcWaH6I"
+    "youtubeId": "gnArvcWaH6I",
+    "metaTitle": "A typical child on Piaget's conservation tasks | Psychflix",
+    "metaDescription": "Watch Piagetian conservation tasks and explore how children understand number, length, liquid, mass and area."
   },
   {
     "id": "what-handwriting-says-about-you",
     "title": "What Your Handwriting Says About You?",
     "category": "Fun",
     "page": "./video/fun/what-handwriting-says-about-you.html",
-    "youtubeId": "A7dwv7D_T5w"
+    "youtubeId": "A7dwv7D_T5w",
+    "metaTitle": "What Your Handwriting Says About You? | Psychflix",
+    "metaDescription": "An exploration of graphology and popular claims about handwriting. Graphology is controversial and is not a reliable personality assessment."
   },
   {
     "id": "fun-and-awesome-psychology-facts",
     "title": "12 Fun and Awesome Psychology Facts You Wish You Knew",
     "category": "Fun",
     "page": "./video/fun/fun-and-awesome-psychology-facts.html",
-    "youtubeId": "8KgH6Ed3IS8"
+    "youtubeId": "8KgH6Ed3IS8",
+    "metaTitle": "12 Fun and Awesome Psychology Facts You Wish You Knew | Psychflix",
+    "metaDescription": "A collection of accessible psychology facts and ideas about everyday thoughts, feelings and behaviour."
   },
   {
     "id": "worlds-quickest-personality-test",
     "title": "World's Quickest Personality Test",
     "category": "Fun",
     "page": "./video/fun/worlds-quickest-personality-test.html",
-    "youtubeId": "kHF0VXPanU8"
+    "youtubeId": "kHF0VXPanU8",
+    "metaTitle": "World's Quickest Personality Test | Psychflix",
+    "metaDescription": "A short personality quiz introducing the Big Five traits: openness, conscientiousness, extraversion, agreeableness and neuroticism."
   },
   {
     "id": "personality-introvert-extrovert-ambivert",
     "title": "Are You an Introvert, Extrovert or Ambivert?",
     "category": "Fun",
     "page": "./video/fun/personality-introvert-extrovert-ambivert.html",
-    "youtubeId": "uIlHVGTQWxA"
+    "youtubeId": "uIlHVGTQWxA",
+    "metaTitle": "Are You an Introvert, Extrovert or Ambivert? | Psychflix",
+    "metaDescription": "Explore introversion, extroversion and ambiversion as personality tendencies that exist along a spectrum."
   },
   {
     "id": "cbt-session-depression",
     "title": "Case Study: CBT Session with Depression",
     "category": "Real Sessions",
     "page": "./video/sessions/cbt-session-depression.html",
-    "youtubeId": "7LD8iC4NqXM"
+    "youtubeId": "7LD8iC4NqXM",
+    "metaTitle": "Case Study: CBT Session with Depression | Psychflix",
+    "metaDescription": "An educational example of a cognitive behavioural therapy session showing how thoughts, feelings and behaviour can interact."
   },
   {
     "id": "dsm-5-real-patient-session-schizophrenia",
     "title": "DSM-5 Real Patient Session - Schizophrenia",
     "category": "Real Sessions",
     "page": "./video/sessions/dsm-5-real-patient-session-schizophrenia.html",
-    "youtubeId": "iGH7hGkkMrU"
+    "youtubeId": "iGH7hGkkMrU",
+    "metaTitle": "DSM-5 Real Patient Session - Schizophrenia | Psychflix",
+    "metaDescription": "A clinical educational discussion demonstrating how professionals assess schizophrenia symptoms using diagnostic criteria."
   },
   {
     "id": "actual-session-beersos",
     "title": "An Actual Therapy Session",
     "category": "Real Sessions",
     "page": "./video/sessions/actual-session-beersos.html",
-    "youtubeId": "vetYz18K4mQ"
+    "youtubeId": "vetYz18K4mQ",
+    "metaTitle": "An Actual Therapy Session | Psychflix",
+    "metaDescription": "An educational look at a therapy conversation and how a therapist helps a client explore experiences and perspectives."
   },
   {
     "id": "narcissism-actual-session",
     "title": "LIVE Narcissism Therapy Session | Evaluation",
     "category": "Real Sessions",
     "page": "./video/sessions/narcissism-actual-session.html",
-    "youtubeId": "5l6mwfsmnBU"
+    "youtubeId": "5l6mwfsmnBU",
+    "metaTitle": "LIVE Narcissism Therapy Session | Evaluation | Psychflix",
+    "metaDescription": "An educational discussion of narcissistic traits, assessment and the process of a therapy session."
   }
 ]

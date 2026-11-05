@@ -1,4 +1,4 @@
-const DATA_URL="./data/videos.json";
+const DATA_URL=document.querySelector(".video-page")?"../../data/videos.json":"./data/videos.json";
 let videos=[];
 function thumbnailSources(v){if(v.thumbnail&&!v.youtubeId)return[v.thumbnail];if(!v.youtubeId)return[];const id=encodeURIComponent(v.youtubeId);return[`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`,`https://i.ytimg.com/vi/${id}/sddefault.jpg`,`https://i.ytimg.com/vi/${id}/hqdefault.jpg`,`https://i.ytimg.com/vi/${id}/mqdefault.jpg`];}
 function createThumbnail(v){const wrap=document.createElement("div");wrap.className="thumbnail thumbnail-fallback";const sources=thumbnailSources(v);if(!sources.length){wrap.classList.add("thumbnail-unavailable");return wrap;}const img=document.createElement("img");img.alt="";img.loading="lazy";img.decoding="async";let i=0;function next(){if(i>=sources.length){img.remove();wrap.classList.add("thumbnail-unavailable");return;}img.src=sources[i++];}img.onload=()=>{if(img.naturalWidth===120&&img.naturalHeight===90)next();else wrap.classList.remove("thumbnail-fallback");};img.onerror=next;next();wrap.appendChild(img);return wrap;}
